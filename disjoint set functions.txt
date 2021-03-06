@@ -1,0 +1,36 @@
+*note : intialize the array as -1.if in any index a[i]<0 then it indicates that this node is a parent and a[i] contains the size of the set .*/
+
+find functions : 
+ll find(ll a,ll parent[])
+{
+   vi v;
+   while(parent[a]>0)
+   {
+       v.pb(a);
+       a = parent[a];
+   }
+   for(ll i=0;i<v.size();i++)parent[v[i]] = a;
+   return a;
+}
+
+
+
+void unio(ll a,ll b,ll parent[])//parent array
+{
+    parent[a] += parent[b];
+    parent[b] = a;
+}
+
+
+minimum  spanning tree
+
+ for(ll i=0;i<m;i++)
+   {
+       ll x = find(ar[i].a,parent);
+       ll y = find(ar[i].b,parent);
+       if(x!=y)
+       {
+           sum+=ar[i].w;
+           unio(x,y,parent);
+       }
+   }
