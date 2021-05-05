@@ -119,7 +119,9 @@ bool UsedInRow(ll grid[N][N], ll row, ll num)
 {
     for (ll col = 0; col < N; col++)
         if (grid[row][col] == num)
-            return true;    return false;
+            return true;    
+            
+    return false;
 }
  
 /* Returns a boolean which indicates whether
@@ -177,4 +179,3 @@ int main()
  if (SolveSudoku(grid) == true)printGrid(grid); 
     return 0;
 }
- 
